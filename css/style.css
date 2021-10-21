@@ -1,0 +1,482 @@
+:root {
+  --blue: #287bff;
+  --grey: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+@font-face {
+  font-family: "heavy";
+  src: url("../fonts/Bahij_TheSansArabic-SemiBold.ttf");
+}
+@font-face {
+  font-family: "bold";
+  src: url("../fonts/Bahij_TheSansArabic-Bold.ttf");
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("../fonts/Bahij_TheSansArabic-Light.ttf");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 100%;
+  max-width: 100%;
+  list-style: none;
+  height: 100vh;
+}
+.container {
+  position: relative;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+/* Finish Global Rules*/
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 1px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation .active {
+  width: 80px;
+}
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: #fff;
+}
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+.navigation ul li a {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  color: #fff;
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 70px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75em;
+}
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+/* curve outside */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+
+/* main */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #fff;
+  transition: 0.5s;
+}
+.active-2 {
+  width: calc(100% - 80px);
+  left: 115px;
+}
+.topbar {
+  width: 96%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.toggle {
+  position: relative;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label {
+  position: relative;
+  width: 100%;
+}
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid var(--black2);
+  font-size: 18px;
+}
+.search label ion-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.2em;
+  color: var(--black1);
+}
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* cards */
+.cardBox {
+  padding: 40px 0;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: calc(-100% + 5px);
+  background-color: var(--blue);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  bottom: 0;
+}
+.card .number {
+  font-size: 30px;
+  font-family: bold;
+}
+.card .class-name {
+  font-size: 20px;
+  font-family: "regular";
+  color: var(--black2);
+}
+.card .icon-box {
+  text-align: center;
+  padding: 5px 0;
+}
+.card ion-icon {
+  font-size: 30px;
+  color: var(--black1);
+}
+.card .content {
+  position: relative;
+  z-index: 3;
+  margin: auto;
+  text-align: center;
+  transition: 0.3s;
+}
+.card:hover .content,
+.card:hover .content .class-name,
+.card:hover .content .card ion-icon {
+  color: white;
+  transform: scale(0.8);
+}
+/* data-list */
+.details {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+  margin-top: 10px;
+}
+.details .recent-orders {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+.header h2 {
+  color: var(--blue);
+  font-size: 25px;
+  font-family: "bold";
+}
+.header .btn {
+  background-color: var(--blue);
+  border-color: transparent;
+  display: grid;
+  align-items: center;
+  padding: 1% 2%;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s linear;
+  font-size: 0.85rem;
+  outline: none;
+  font-family: "regular";
+}
+.details .recent-orders table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.details .recent-orders table thead td {
+  font-family: "bold";
+  font-size: 22px;
+}
+.details .recent-orders table tbody td {
+  font-family: "heavy";
+  font-size: 18px;
+  padding: 10px;
+}
+.details .recent-orders table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.details .recent-orders table tr td:last-child {
+  text-align: end;
+}
+.details .recent-orders table tr:last-child {
+  border-bottom: none;
+}
+.details .recent-orders table tr td:nth-child(1) {
+  text-align: start;
+}
+.details .recent-orders table tr td {
+  text-align: center;
+}
+.details .recent-orders table tbody tr:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: scale(1.08);
+  border-radius: 10px;
+}
+.details .delivered {
+  padding: 2px 4px;
+  background-color: #8de02c;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.details .pended {
+  padding: 2px 4px;
+  background-color: #f9ca3f;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.details .InProgress {
+  padding: 2px 4px;
+  background-color: #1795ce;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.details .return {
+  padding: 2px 4px;
+  background-color: #f00;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.recent-customer {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  background: white;
+  border-radius: 20px;
+}
+.recent-customer .img-box {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.recent-customer .img-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recent-customer table tr:hover {
+  background: var(--blue);
+  color: white;
+}
+.recent-customer table tr td {
+  padding: 10px;
+}
+.recent-customer table tr td h4 {
+  font-size: 18px;
+  color: var(--black1);
+  line-height: 1.2em;
+}
+.recent-customer table tr td h4 span {
+  font-size: 14px;
+  color: var(--black2);
+}
+.recent-customer table tr td:hover h4 span {
+  font-size: 14px;
+  color: white;
+  font-family: "heavy";
+}
+@media (max-width: 991.98px) {
+  .navigation {
+    left: -300px;
+  }
+  .active {
+    left: 0;
+    width: 300px;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .active-2 {
+    left: 300px;
+  }
+  .card {
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+  }
+  .header h2 {
+    font-size: 17px;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .details .recent-orders table thead td {
+    font-size: 11px;
+  }
+  .details .recent-orders table tbody td {
+    font-size: 11px;
+  }
+  .details .delivered,.details .pended,.details .InProgress,.details .return {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+ 
+  .details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .recent-orders {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ? Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ? Required meta tags -->
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="css/lightbox.css">
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <style>
+        .image-gellary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+        }
+        .lb-data .lb-close{
+            position: absolute;
+            top: 0;
+            left: 27%;
+        }
+
+        .lightbox .lb-image {
+            width: 500px !important ;
+            height: 500px !important;
+        }
+        .lb-nav a.lb-prev ,.lb-nav a.lb-next{
+            opacity: .6;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="image-gellary">
+        <div class="container">
+            <div class="gallery">
+                <a href="media/img1.jpg" data-lightbox="models" data-title="Caption1">
+                    <img src="media/img1.jpg">
+                </a>
+                <a href="media/img2.jpg" data-lightbox="models" data-title="Caption2">
+                    <img src="media/img2.jpg">
+                </a> <a href="media/img3.jpg" data-lightbox="models" data-title="Caption3">
+                    <img src="media/img3.jpg">
+                </a> <a href="media/img4.jpg" data-lightbox="models" data-title="Caption4">
+                    <img src="media/img4.jpg">
+                </a> <a href="media/img5.jpg" data-lightbox="models" data-title="Caption5">
+                    <img src="media/img5.jpg">
+                </a> <a href="media/img6.jpg" data-lightbox="models" data-title="Caption6">
+                    <img src="media/img6.jpg">
+                </a> <a href="media/img7.jpg" data-lightbox="models" data-title="Caption7">
+                    <img src="media/img7.jpg">
+                </a> <a href="media/img8.jpg" data-lightbox="models" data-title="Caption8">
+                    <img src="media/img8.jpg">
+                </a>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <script src="js/lightbox-plus-jquery.js"></script>
+
+</body>
+
+</html>
